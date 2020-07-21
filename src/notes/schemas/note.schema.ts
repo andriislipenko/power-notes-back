@@ -2,7 +2,7 @@ import { Schema, SchemaFactory, Prop } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
 @Schema()
-export class Note extends Document {
+export class Note extends Document {    
     @Prop()
     title: string;
 
@@ -20,3 +20,11 @@ export class Note extends Document {
 }
 
 export const NoteSchema = SchemaFactory.createForClass(Note);
+
+NoteSchema.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transform: (doc, ret) => {
+        delete ret._id;
+    }
+})

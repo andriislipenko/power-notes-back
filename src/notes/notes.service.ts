@@ -22,7 +22,6 @@ export class NotesService {
 
     public async create(createNoteDto: CreateNoteDto): Promise<Note> {
         const createdNote: Note = new this.noteModel(createNoteDto);
-
         return createdNote.save();
     }
 
