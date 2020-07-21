@@ -30,6 +30,6 @@ export class NotesService {
     }
 
     public async delete(id: string): Promise<any> {
-        return this.noteModel.deleteOne({id});
+        return this.noteModel.deleteOne({ _id: id });
     }
 }
